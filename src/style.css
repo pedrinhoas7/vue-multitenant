@@ -3,9 +3,14 @@
 @layer base {
   :root {
     --primary-color: #04986D;
+    --background-color: #04986D;
   }
 }
 
 .bg-primary{
   background-color: var(--primary-color);
+}
+
+#app{
+  background-color: var(--background-color);
 }
