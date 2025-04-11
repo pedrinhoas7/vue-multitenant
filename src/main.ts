@@ -4,7 +4,8 @@ import App from './App.vue'
 import { getTenant } from '@/utils/tenant';
 import { tenantConfigs } from '@/configs/tenantConfigs';
 import router from '@/router/index'
-
+import { createPinia } from 'pinia'
+import { useUserStore } from '@/stores/userStore'
 
 
 const tenant = getTenant();
@@ -15,4 +16,10 @@ document.documentElement.style.setProperty('--background-color', config.backgrou
 document.documentElement.style.setProperty('--primary-color', config.primaryColor);
 const app =createApp(App);
 app.use(router)
+app.use(createPinia())
+
+
+const userStore = useUserStore()
+userStore.fetchUserOnStart() 
+
 app.mount('#app')
