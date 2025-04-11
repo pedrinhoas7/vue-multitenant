@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import List from '@/components/property/List.vue'
+import List from '../components/Property/List.vue';
 import { analytics } from '../../firebase';
 import { logEvent } from 'firebase/analytics';
 
