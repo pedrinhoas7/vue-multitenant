@@ -1,6 +1,7 @@
 // src/firebase.ts
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getRemoteConfig, fetchAndActivate, getValue } from 'firebase/remote-config';
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -11,8 +12,11 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+
+
 const app = initializeApp(firebaseConfig);
+const remoteConfig = getRemoteConfig(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-export { auth, provider };
+export { remoteConfig, auth, provider, fetchAndActivate, getValue };

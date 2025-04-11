@@ -2,9 +2,9 @@
   <header class="bg-white shadow-md w-full">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <!-- Logo -->
-      <img :src="logo" alt="Logo" class="h-10 w-auto" />
+      <img :src="config.logo" alt="Logo" class="h-10 w-auto" />
       <div class="text-xl font-bold text-primary">
-        <a href="/">{{ name }}</a>
+        <a href="/">{{ config.name }}</a>
       </div>
 
       <!-- Navegação desktop -->
@@ -63,20 +63,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { getTenant } from '@/utils/tenant'
-import { tenantConfigs } from '@/configs/tenantConfigs'
+import { ref, onMounted } from 'vue'
 import { useUserStore } from '@/stores/userStore'
+import { useTenantStore } from '@/stores/tenantStore'
+import { getTenant } from '@/utils/tenant';
+import { getTenantConfig } from '@/services/tenantService';
+
 
 const menuOpen = ref(false)
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
 }
-
-const tenant = getTenant()
-const { logo, name } = tenantConfigs[tenant] || tenantConfigs['default']
-
+const config = ref({})
 const userStore = useUserStore()
+const tenantStore = useTenantStore()
+onMounted(async() => {
+  config.value = await getTenantConfig(getTenant())
+})  
 
 const login = async () => {
   await userStore.loginWithGoogle()
