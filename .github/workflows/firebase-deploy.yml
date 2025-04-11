@@ -30,20 +30,16 @@ jobs:
       - name: Instalar Firebase CLI
         run: npm install -g firebase-tools@latest
 
-      - name: Backup da Remote Config (produção apenas)
-        if: ${{ github.event.inputs.environment == 'production' }}
-        run: |
-          mkdir -p firebase-backups
-          firebase remoteconfig:get > firebase-backups/remoteconfig-$(date +%Y%m%d-%H%M%S).json
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Criar arquivo de credenciais
+        run: echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > ${{ github.workspace }}/firebase-key.json
 
-      - name: Deploy para Hosting (staging ou produção)
+      - name: Definir variável de ambiente
+        run: echo "GOOGLE_APPLICATION_CREDENTIALS=${{ github.workspace }}/firebase-key.json" >> $GITHUB_ENV
+
+      - name: Deploy para Hosting
         run: |
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
             firebase deploy --only hosting:production-site --project webapp-authentic
           else
             firebase deploy --only hosting:staging-site --project webapp-authentic-staging
           fi
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
