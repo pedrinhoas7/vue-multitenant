@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # 🏠 Vue Multi-Tenant App
 
 Este projeto é um exemplo de aplicação **multi-tenant** utilizando **Vue 3**, **Vite**, **Tailwind CSS** e **Axios**. Ele demonstra como criar uma estrutura escalável para múltiplos clientes, cada um com sua própria identidade visual e configuração.
