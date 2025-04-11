@@ -1,1 +1,14 @@
-{}
+{
+    "tenant_configs": {
+        "vue-multitenant-app": {
+            "name": "Tenant 1",
+            "primaryColor": "#04986D",
+            "logo": "/logos/cliente1.svg"
+        },
+        "localhost": {
+            "name": "localhost",
+            "primaryColor": "#04986D",
+            "logo": "/logos/cliente1.svg"
+        }
+    }
+}
