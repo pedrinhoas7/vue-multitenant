@@ -35,7 +35,7 @@ Este projeto é um exemplo de aplicação **multi-tenant** utilizando **Vue 3**,
 
 ## 📦 Instalação
 
-```bash
+```
 git clone https://github.com/pedrinhoas7/vue-multitenant-app.git
 cd vue-multitenant-app
 npm install
@@ -74,5 +74,5 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-Feito com 💚 por [Seu Nome](https://github.com/pedrinhoas7)
-```
+Feito com 💚 por [Pedro Moraes](https://github.com/pedrinhoas7)
+
