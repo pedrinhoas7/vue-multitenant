@@ -39,7 +39,6 @@ export const useUserStore = defineStore('userStore', {
         fetchUserOnStart() {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    console.log('User is logged in:', user)
                     this.user = {
                         name: user.displayName || '',
                         email: user.email || '',

@@ -5,7 +5,6 @@ export async function getTenantConfig(tenantId: string) {
     await fetchAndActivate(remoteConfig);
 
     const configsRaw = getValue(remoteConfig, 'tenant_configs').asString();
-    console.log('configsRaw', configsRaw);
     const configs: Record<string, any> = JSON.parse(configsRaw);
     
     return configs[tenantId] || configs['default'];
