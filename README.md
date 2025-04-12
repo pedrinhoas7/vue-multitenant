@@ -73,7 +73,7 @@ Aplicação frontend desenvolvida com **Vue 3** e **Vite**, com arquitetura volt
 | Tenant        | Link                                                                                 |
 |---------------|----------------------------------------------------------------------------------------|
 | Tenant 1      | [https://vue-multitenant-app.firebaseapp.com/](https://vue-multitenant-app.firebaseapp.com/) |
-| Tenant 2 (testes) | [https://vue-multitenant-app--webapp-authentic-qdoa8ss9.web.app/](https://vue-multitenant-app--webapp-authentic-qdoa8ss9.web.app/) |
+| Tenant 2      | [https://vue-multitenant-app-2.firebaseapp.com/](https://vue-multitenant-app-2.firebaseapp.com/) |
 
 ---
 
