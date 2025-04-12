@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "webapp-authentic"
-  }
+  },
+  "targets": {
+    "webapp-authentic": {
+      "hosting": {
+        "production-site": [
+          "vue-multitenant-app"
+        ],
+        "staging-site": [
+          "vue-multitenant-app-staging"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
