@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Ambiente de deploy (staging ou production)'
+        description: 'Ambiente de deploy (ex: vue-multitenant-app)'
         required: true
-        default: 'staging'
 
 jobs:
   deploy:
@@ -47,8 +46,5 @@ jobs:
 
       - name: Deploy para Hosting
         run: |
-          if [ "${{ github.event.inputs.environment }}" = "production" ]; then
-            firebase deploy --only hosting:vue-multitenant-app --project webapp-authentic
-          else
-            firebase deploy --only hosting:vue-multitenant-app-2 --project webapp-authentic
-          fi
+          firebase deploy --only hosting:"${{ github.event.inputs.environment }}" --project webapp-authentic
+
