@@ -21,6 +21,7 @@
   import Card from './Card.vue';
   import PropertyFilter from './PropertyFilter.vue';
   
+  //TODO: Add a function to fetch properties from an API or database
   const properties = ref([
     {
       id: 1,

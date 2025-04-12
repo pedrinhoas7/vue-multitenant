@@ -1,4 +1,3 @@
-// src/firebase.ts
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getRemoteConfig, fetchAndActivate, getValue } from 'firebase/remote-config';
@@ -13,18 +12,15 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-
-
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const remoteConfig = getRemoteConfig(app);
-
-remoteConfig.settings = {
-    fetchTimeoutMillis: 10000, // 10 segundos
-    minimumFetchIntervalMillis: 0, // pra forçar buscar sempre
-};
-
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+
+remoteConfig.settings = {
+    fetchTimeoutMillis: 10000,
+    minimumFetchIntervalMillis: 0,
+};
 
 export { analytics, remoteConfig, auth, provider, fetchAndActivate, getValue };

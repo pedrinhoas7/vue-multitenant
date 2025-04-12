@@ -65,6 +65,7 @@
     order: '',
   });
   
+  //TODO: Add a function to fetch cities from an API or database
   const cities = ['São Paulo', 'Rio de Janeiro', 'Curitiba', 'Belo Horizonte'];
   
   const emit = defineEmits(['filter']);

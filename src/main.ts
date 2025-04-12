@@ -5,17 +5,12 @@ import router from '@/router/index'
 import { createPinia } from 'pinia'
 import { useUserStore } from '@/stores/userStore'
 
-
-
-// Aplica a cor no root
-
 const app = createApp(App);
 app.use(router)
 app.use(createPinia())
 
-
+// Verify if the user is logged in when the app starts
 const userStore = useUserStore()
 userStore.fetchUserOnStart() 
-
 
 app.mount('#app')

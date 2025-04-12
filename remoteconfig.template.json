@@ -1,14 +1,25 @@
 {
     "tenant_configs": {
         "vue-multitenant-app": {
+            "title": "Tenant 1",
             "name": "Tenant 1",
-            "primaryColor": "#04986D",
-            "logo": "/logos/cliente1.svg"
+            "primaryColor": "#0000ff",
+            "backgroundColor": "#fffef2",
+            "logo": "https://placehold.co/600x400?text=Tenant+1"
         },
         "localhost": {
+            "title": "Localhost",
             "name": "localhost",
             "primaryColor": "#04986D",
-            "logo": "/logos/cliente1.svg"
+            "backgroundColor": "#FF0000",
+            "logo": "https://placehold.co/600x400?text=Localhost"
+        },
+        "vue-multitenant-app--webapp-authentic-qdoa8ss9": {
+            "title": "Tenant 2",
+            "name": "Tenant 2",
+            "primaryColor": "#04986D",
+            "backgroundColor": "#fef2ff",
+            "logo": "https://placehold.co/600x400?text=Tenant+2"
         }
     }
 }

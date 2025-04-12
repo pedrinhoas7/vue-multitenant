@@ -1,7 +1,6 @@
-// src/stores/userStore.ts
 import { defineStore } from 'pinia'
 import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth'
-import { auth } from '../../firebase' // certifique-se de que esse caminho está correto
+import { auth } from '../../firebase' 
 
 export const useUserStore = defineStore('userStore', {
     state: () => ({

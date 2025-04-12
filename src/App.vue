@@ -14,6 +14,7 @@ watch(
   () => config.value,
   (newTenant) => {
     if (newTenant) {
+      document.title = newTenant.title; 
       document.documentElement.style.setProperty('--background-color', newTenant.backgroundColor);
       document.documentElement.style.setProperty('--primary-color', newTenant.primaryColor);
     }

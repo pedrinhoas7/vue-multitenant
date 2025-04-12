@@ -1,9 +1,8 @@
-// src/stores/imovelStore.ts
 import { defineStore } from 'pinia'
 
 export const useImovelStore = defineStore('imovel', {
     state: () => ({
-        imoveis: [] as Array<any>, // você pode tipar melhor isso se quiser
+        imoveis: [] as Array<any>,
     }),
     actions: {
         adicionarImovel(imovel: any) {
