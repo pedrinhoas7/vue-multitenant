@@ -13,7 +13,7 @@
     "webapp-authentic-staging": {
       "hosting": {
         "staging-site": [
-          "vue-multitenant-app-staging"
+          "vue-multitenant-app-2"
         ]
       }
     }

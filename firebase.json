@@ -17,7 +17,7 @@
     },
     {
       "public": "dist",
-      "site": "vue-multitenant-app-staging",
+      "site": "vue-multitenant-app-2",
       "ignore": [
         "firebase.json",
         "**/.*",
