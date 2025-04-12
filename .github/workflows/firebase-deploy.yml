@@ -41,5 +41,5 @@ jobs:
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
             firebase deploy --only hosting:vue-multitenant-app --project webapp-authentic
           else
-            firebase deploy --only hosting:vue-multitenant-app-staging --project webapp-authentic-staging
+            firebase deploy --only hosting:vue-multitenant-app-staging --project webapp-authentic
           fi
