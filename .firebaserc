@@ -5,14 +5,10 @@
   "targets": {
     "webapp-authentic": {
       "hosting": {
-        "production-site": [
+        "site-vue-multitenant-app": [
           "vue-multitenant-app"
-        ]
-      }
-    },
-    "webapp-authentic-staging": {
-      "hosting": {
-        "staging-site": [
+        ],
+        "site-vue-multitenant-app-2": [
           "vue-multitenant-app-2"
         ]
       }
