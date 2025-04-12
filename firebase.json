@@ -1,7 +1,20 @@
 {
   "hosting": {
     "public": "dist",
-    "site": "vue-multitenant-app",
+    "site": {
+      "targets": {
+        "webapp-authentic": {
+          "hosting": {
+            "production-site": ["vue-multitenant-app"]
+          }
+        },
+        "webapp-authentic-staging": {
+          "hosting": {
+            "staging-site": ["vue-multitenant-app-staging"]
+          }
+        }
+      }
+    },
     "ignore": [
       "firebase.json",
       "**/.*",
