@@ -7,7 +7,11 @@
       "hosting": {
         "production-site": [
           "vue-multitenant-app"
-        ],
+        ]
+      }
+    },
+    "webapp-authentic-staging": {
+      "hosting": {
         "staging-site": [
           "vue-multitenant-app-staging"
         ]

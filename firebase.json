@@ -1,32 +1,36 @@
 {
-  "hosting": {
-    "public": "dist",
-    "site": {
-      "targets": {
-        "webapp-authentic": {
-          "hosting": {
-            "production-site": ["vue-multitenant-app"]
-          }
-        },
-        "webapp-authentic-staging": {
-          "hosting": {
-            "staging-site": ["vue-multitenant-app-staging"]
-          }
+  "hosting": [
+    {
+      "public": "dist",
+      "site": "vue-multitenant-app",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
         }
-      }
+      ]
     },
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
+    {
+      "public": "dist",
+      "site": "vue-multitenant-app-staging",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
   "remoteconfig": {
     "template": "remoteconfig.template.json"
   },
