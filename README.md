@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/40415fea-6e10-4571-b8db-86935ee8edf3)
 ### 📘 Projeto: Vue Multi-Tenant App
 
 **Descrição técnica:**  
