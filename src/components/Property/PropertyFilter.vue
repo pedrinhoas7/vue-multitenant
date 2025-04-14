@@ -15,9 +15,7 @@
           <label class="block text-sm font-medium text-gray-700 mb-1">Tipo</label>
           <select v-model="filters.type" class="w-full border border-gray-300 rounded px-3 py-2">
             <option value="">Todos</option>
-            <option value="casa">Casa</option>
-            <option value="apartamento">Apartamento</option>
-            <option value="kitnet">Kitnet</option>
+            <option v-for="type in types" :value="type">{{ type }}</option>
           </select>
         </div>
   
@@ -56,7 +54,10 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
+  import { getTenantConfig } from '@/services/tenantService';
+  import { getTenant } from '@/utils/tenant';
+  import { getPropertiesByTenant } from '@/repositories/propertiesRepository';
   
   const filters = ref({
     city: '',
@@ -64,9 +65,21 @@
     maxPrice: null,
     order: '',
   });
-  
-  //TODO: Add a function to fetch cities from an API or database
-  const cities = ['São Paulo', 'Rio de Janeiro', 'Curitiba', 'Belo Horizonte'];
+
+  const config = ref({});
+  const cities = ref([]);
+  const types = ref([]);
+  const properties = ref([]);
+
+  console.log("properties")
+
+
+  onMounted(async() => {
+    config.value = await getTenantConfig(getTenant());
+    properties.value = await getPropertiesByTenant(config.value.tenantId)
+    cities.value = [...new Set(properties.value.map(property => property.city))];
+    types.value = [...new Set(properties.value.map(property => property.type))];
+  });
   
   const emit = defineEmits(['filter']);
   const emitFilter = () => {

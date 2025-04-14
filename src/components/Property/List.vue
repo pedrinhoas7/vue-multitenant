@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <Card v-for="property in filteredProperties" :key="property.id" :title="property.title"
         :address="property.address" :price="property.price" :image="property.image"
-        :description="property.description" />
+        :description="property.description" :type="property.type" />
     </div>
   </div>
 </template>
@@ -14,12 +14,11 @@
 import { ref, computed, onMounted } from 'vue';
 import Card from './Card.vue';
 import PropertyFilter from './PropertyFilter.vue';
-import { useTenantStore } from '@/stores/tenantStore';
 import { getPropertiesByTenant } from '@/repositories/propertiesRepository';
 import { getTenant } from '@/utils/tenant';
 import { getTenantConfig } from '@/services/tenantService';
 
-const tenantStore = useTenantStore()
+
 const config = ref({})
 const properties = ref([])
 onMounted(async() => {
@@ -46,6 +45,7 @@ const filteredProperties = computed(() => {
   }
 
   if (filters.value.type) {
+    console.log(filters.value.type)
     list = list.filter(p => p.type === filters.value.type);
   }
 

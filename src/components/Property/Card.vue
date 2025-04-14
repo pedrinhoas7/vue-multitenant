@@ -5,8 +5,9 @@
       <div>
         <h2 class="text-lg font-semibold text-neutral-black mb-1">{{ title }}</h2>
         <p class="text-sm text-gray-600">{{ address }}</p>
-        <p class="text-green-600 font-bold mt-2 text-lg">R$ {{ price.toLocaleString() }}</p>
+        <p class="text-green-600 font-bold mt-2 text-lg">R$ {{ formatPrice(price) }}</p>
         <p class="text-sm text-gray-500 mt-2">{{ description }}</p>
+        <p class="text-sm text-gray-500 mt-2">{{ type }}</p>
       </div>
       <div class="mt-4 flex justify-between items-center">
         <button @click="toggleFavorite" class="text-red-500 hover:scale-110 transition"
@@ -30,10 +31,17 @@
 import { ref } from 'vue'
 import { useUserStore } from '@/stores/userStore'
 
-defineProps(['title', 'address', 'price', 'image', 'description'])
+defineProps(['title', 'address', 'price', 'image', 'description', 'type'])
 
 const favorited = ref(false)
 const userStore = useUserStore()
+
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(price)
+}
 
 const toggleFavorite = async () => {
   if (!userStore.isLoggedIn) {
